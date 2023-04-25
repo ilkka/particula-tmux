@@ -8,24 +8,24 @@ source $current_dir/utils.sh
 main()
 {
   # set configuration option variables
-  show_fahrenheit=$(get_tmux_option "@dracula-show-fahrenheit" true)
-  show_location=$(get_tmux_option "@dracula-show-location" true)
-  fixed_location=$(get_tmux_option "@dracula-fixed-location")
-  show_powerline=$(get_tmux_option "@dracula-show-powerline" false)
-  show_flags=$(get_tmux_option "@dracula-show-flags" false)
-  show_left_icon=$(get_tmux_option "@dracula-show-left-icon" smiley)
-  show_left_icon_padding=$(get_tmux_option "@dracula-left-icon-padding" 1)
-  show_military=$(get_tmux_option "@dracula-military-time" false)
-  show_timezone=$(get_tmux_option "@dracula-show-timezone" true)
-  show_left_sep=$(get_tmux_option "@dracula-show-left-sep" )
-  show_right_sep=$(get_tmux_option "@dracula-show-right-sep" )
-  show_border_contrast=$(get_tmux_option "@dracula-border-contrast" false)
-  show_day_month=$(get_tmux_option "@dracula-day-month" false)
-  show_refresh=$(get_tmux_option "@dracula-refresh-rate" 5)
-  time_format=$(get_tmux_option "@dracula-time-format" "")
-  show_kubernetes_context_label=$(get_tmux_option "@dracula-kubernetes-context-label" "")
-  IFS=' ' read -r -a plugins <<< $(get_tmux_option "@dracula-plugins" "battery network weather")
-  show_empty_plugins=$(get_tmux_option "@dracula-show-empty-plugins" true)
+  show_fahrenheit=$(get_tmux_option "@particula-show-fahrenheit" true)
+  show_location=$(get_tmux_option "@particula-show-location" true)
+  fixed_location=$(get_tmux_option "@particula-fixed-location")
+  show_powerline=$(get_tmux_option "@particula-show-powerline" false)
+  show_flags=$(get_tmux_option "@particula-show-flags" false)
+  show_left_icon=$(get_tmux_option "@particula-show-left-icon" smiley)
+  show_left_icon_padding=$(get_tmux_option "@particula-left-icon-padding" 1)
+  show_military=$(get_tmux_option "@particula-military-time" false)
+  show_timezone=$(get_tmux_option "@particula-show-timezone" true)
+  show_left_sep=$(get_tmux_option "@particula-show-left-sep" )
+  show_right_sep=$(get_tmux_option "@particula-show-right-sep" )
+  show_border_contrast=$(get_tmux_option "@particula-border-contrast" false)
+  show_day_month=$(get_tmux_option "@particula-day-month" false)
+  show_refresh=$(get_tmux_option "@particula-refresh-rate" 5)
+  time_format=$(get_tmux_option "@particula-time-format" "")
+  show_kubernetes_context_label=$(get_tmux_option "@particula-kubernetes-context-label" "")
+  IFS=' ' read -r -a plugins <<< $(get_tmux_option "@particula-plugins" "battery network weather")
+  show_empty_plugins=$(get_tmux_option "@particula-show-empty-plugins" true)
 
   # Dracula Color Pallette
   white='#f8f8f2'
@@ -124,66 +124,66 @@ main()
   for plugin in "${plugins[@]}"; do
 
     if [ $plugin = "cwd" ]; then
-      IFS=' ' read -r -a colors  <<< $(get_tmux_option "@dracula-cwd-colors" "dark_gray white")
+      IFS=' ' read -r -a colors  <<< $(get_tmux_option "@particula-cwd-colors" "dark_gray white")
       tmux set-option -g status-right-length 250
       script="#($current_dir/cwd.sh)"
 
     elif [ $plugin = "git" ]; then
-      IFS=' ' read -r -a colors  <<< $(get_tmux_option "@dracula-git-colors" "green dark_gray")
+      IFS=' ' read -r -a colors  <<< $(get_tmux_option "@particula-git-colors" "green dark_gray")
       tmux set-option -g status-right-length 250
       script="#($current_dir/git.sh)"
 
     elif [ $plugin = "battery" ]; then
-      IFS=' ' read -r -a colors <<< $(get_tmux_option "@dracula-battery-colors" "pink dark_gray")
+      IFS=' ' read -r -a colors <<< $(get_tmux_option "@particula-battery-colors" "pink dark_gray")
       script="#($current_dir/battery.sh)"
 
     elif [ $plugin = "gpu-usage" ]; then
-      IFS=' ' read -r -a colors <<< $(get_tmux_option "@dracula-gpu-usage-colors" "pink dark_gray")
+      IFS=' ' read -r -a colors <<< $(get_tmux_option "@particula-gpu-usage-colors" "pink dark_gray")
       script="#($current_dir/gpu_usage.sh)"
 
     elif [ $plugin = "cpu-usage" ]; then
-      IFS=' ' read -r -a colors <<< $(get_tmux_option "@dracula-cpu-usage-colors" "orange dark_gray")
+      IFS=' ' read -r -a colors <<< $(get_tmux_option "@particula-cpu-usage-colors" "orange dark_gray")
       script="#($current_dir/cpu_info.sh)"
 
     elif [ $plugin = "ram-usage" ]; then
-      IFS=' ' read -r -a colors <<< $(get_tmux_option "@dracula-ram-usage-colors" "cyan dark_gray")
+      IFS=' ' read -r -a colors <<< $(get_tmux_option "@particula-ram-usage-colors" "cyan dark_gray")
       script="#($current_dir/ram_info.sh)"
 
     elif [ $plugin = "network" ]; then
-      IFS=' ' read -r -a colors <<< $(get_tmux_option "@dracula-network-colors" "cyan dark_gray")
+      IFS=' ' read -r -a colors <<< $(get_tmux_option "@particula-network-colors" "cyan dark_gray")
       script="#($current_dir/network.sh)"
 
     elif [ $plugin = "network-bandwidth" ]; then
-      IFS=' ' read -r -a colors <<< $(get_tmux_option "@dracula-network-bandwidth-colors" "cyan dark_gray")
+      IFS=' ' read -r -a colors <<< $(get_tmux_option "@particula-network-bandwidth-colors" "cyan dark_gray")
       tmux set-option -g status-right-length 250
       script="#($current_dir/network_bandwidth.sh)"
 
     elif [ $plugin = "network-ping" ]; then
-      IFS=' ' read -r -a colors <<<$(get_tmux_option "@dracula-network-ping-colors" "cyan dark_gray")
+      IFS=' ' read -r -a colors <<<$(get_tmux_option "@particula-network-ping-colors" "cyan dark_gray")
       script="#($current_dir/network_ping.sh)"
 
     elif [ $plugin = "network-vpn" ]; then
-      IFS=' ' read -r -a colors <<<$(get_tmux_option "@dracula-network-vpn-colors" "cyan dark_gray")
+      IFS=' ' read -r -a colors <<<$(get_tmux_option "@particula-network-vpn-colors" "cyan dark_gray")
       script="#($current_dir/network_vpn.sh)"
 
     elif [ $plugin = "attached-clients" ]; then
-      IFS=' ' read -r -a colors <<<$(get_tmux_option "@dracula-attached-clients-colors" "cyan dark_gray")
+      IFS=' ' read -r -a colors <<<$(get_tmux_option "@particula-attached-clients-colors" "cyan dark_gray")
       script="#($current_dir/attached_clients.sh)"
 
     elif [ $plugin = "spotify-tui" ]; then
-      IFS=' ' read -r -a colors <<<$(get_tmux_option "@dracula-spotify-tui-colors" "green dark_gray")
+      IFS=' ' read -r -a colors <<<$(get_tmux_option "@particula-spotify-tui-colors" "green dark_gray")
       script="#($current_dir/spotify-tui.sh)"
 
     elif [ $plugin = "kubernetes-context" ]; then
-      IFS=' ' read -r -a colors <<<$(get_tmux_option "@dracula-kubernetes-context-colors" "cyan dark_gray")
+      IFS=' ' read -r -a colors <<<$(get_tmux_option "@particula-kubernetes-context-colors" "cyan dark_gray")
       script="#($current_dir/kubernetes_context.sh $show_kubernetes_context_label)"
 
     elif [ $plugin = "weather" ]; then
-      IFS=' ' read -r -a colors <<< $(get_tmux_option "@dracula-weather-colors" "orange dark_gray")
+      IFS=' ' read -r -a colors <<< $(get_tmux_option "@particula-weather-colors" "orange dark_gray")
       script="#($current_dir/weather_wrapper.sh $show_fahrenheit $show_location $fixed_location)"
 
     elif [ $plugin = "time" ]; then
-      IFS=' ' read -r -a colors <<< $(get_tmux_option "@dracula-time-colors" "dark_purple white")
+      IFS=' ' read -r -a colors <<< $(get_tmux_option "@particula-time-colors" "dark_purple white")
       if [ -n "$time_format" ]; then
         script=${time_format}
       else

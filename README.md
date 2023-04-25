@@ -1,16 +1,20 @@
-# Dracula for [tmux](https://github.com/tmux/tmux/wiki)
+# Particula, a personal fork of Dracula for [tmux](https://github.com/tmux/tmux/wiki)
 
 > A dark theme for [tmux](https://github.com/tmux/tmux/wiki)
 
-![Screenshot](./screenshot.png)
+I (@ilkka) forked this for my own use in order to tweak some things I wanted to change. I chose a different name so as not to cause anyone to think that I have anything to do with any Dracula-related development.
+
+The excellent Dracula theme for tmux was written by Dane Williams and is used as the basis here under the terms of its MIT license.
+
+I make no guarantees and almost certainly can't offer any kind of support :)
 
 ## Install
 
-All instructions can be found at [draculatheme.com/tmux](https://draculatheme.com/tmux).
+Instructions for Dracula apply, see [particulatheme.com/tmux](https://particulatheme.com/tmux).
 
 ## Configuration
 
-Configuration and options can be found at [draculatheme.com/tmux](https://draculatheme.com/tmux).
+Instructions for Dracula apply, see [particulatheme.com/tmux](https://particulatheme.com/tmux).
 
 ## Features
 
@@ -37,20 +41,6 @@ Configuration and options can be found at [draculatheme.com/tmux](https://dracul
 
 Compatible with macOS and Linux. Tested on tmux 3.1b
 FreeBSD compatibility is in development
-
-## Team
-
-This theme is maintained by the following person(s) and a bunch of [awesome contributors](https://github.com/dracula/tmux/graphs/contributors).
-
-| [![Dane Williams](https://avatars2.githubusercontent.com/u/22798229?s=70&v=4",)](https://github.com/danerwilliams) | [![Ethan Edwards](https://avatars1.githubusercontent.com/u/60861925?s=70&v=4)](https://github.com/ethancedwards8) |
-| ------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------- |
-| [Dane Williams](https://github.com/danerwilliams)                                                                  | [Ethan Edwards](https://github.com/ethancedwards8)                                                                |
-
-## Community
-
-- [Twitter](https://twitter.com/draculatheme) - Best for getting updates about themes and new stuff.
-- [GitHub](https://github.com/dracula/dracula-theme/discussions) - Best for asking questions and discussing issues.
-- [Discord](https://draculatheme.com/discord-invite) - Best for hanging out with the community.
 
 ## License
 
