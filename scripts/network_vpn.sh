@@ -8,7 +8,19 @@ source $current_dir/utils.sh
 vpn_function() {
   case $(uname -s) in
   Linux)
-    # TODO
+    if ip route | grep -q "^default"; then
+      if ip route | grep -q "^default dev tun0"; then
+        if pgrep vpnc &>/dev/null; then
+          echo "😀 VPN"
+        else
+          echo "😓 vpnc"
+        fi
+      else
+        echo ""
+      fi
+    else
+      echo "😓 routes"
+    fi
   ;;
   
   Darwin)
