@@ -87,16 +87,16 @@ battery_status()
 
   case $status in
     discharging|Discharging)
-      echo ''
+      echo '🪫'
       ;;
     high|Full)
-      echo ''
+      echo '🔋'
       ;;
     charging|Charging)
-      echo 'AC'
+      echo '🔌'
       ;;
     *)
-      echo 'AC'
+      echo '🔌'
       ;;
   esac
   ### Old if statements didn't work on BSD, they're probably not POSIX compliant, not sure
